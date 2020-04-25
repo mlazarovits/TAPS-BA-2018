@@ -1,5 +1,14 @@
 # TAPS_BA_2018
-Framework and documentation for "Beyond It Is Another Dimension" (2018)
+"Beyond It Is Another Dimension" (2018) for the completion of Theatre and Performance Studies Minor  
+
+Created and Directed by Margaret Lazarovits  
+B.A. Thesis     
+Department of Theatre and Performance Studies     
+University of Chicago     
+Preceptor: Leslie Buxbaum Danzig      
+Spring 2018, Reva and David Logan Center for the Arts Room 701      
+
+
 
 [Video recording of Beyond It Is Another Dimension with talkback](https://drive.google.com/file/d/1M5hGk0_FrW9PgXpwj9EQJLGV1RF6Xq8I/view?usp=sharing)
 
