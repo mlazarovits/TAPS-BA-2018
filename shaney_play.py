@@ -18,10 +18,12 @@ port = dmx.select_port('/dev/tty.usbserial-ENVWHQLD')
 
 #light cue functions
 def lights_sleep():
-    while True:
-       	port.blackout()
+    print('lights sleep')
+    # while True:
+    port.blackout()
     port.render()
     sleep(2)
+    print('lights sleep')
 
     i = 0
     while i < 24:
@@ -62,12 +64,16 @@ def lights_sleep():
     	i = i + 3
 
     sleep(2)
+    print('lights sleep')
+
 
 def led_sleep():
-    while True:
-       	port.blackout()
+    print('led sleep')
+    # while True:
+    port.blackout()
     port.render()
     sleep(2)
+    print('led sleep')
     i = 36
     while i < 38:
     	b = 1
@@ -109,13 +115,17 @@ def led_sleep():
     		b = b + 1
     	i = i + 1 	
     sleep(2)
-		   
+    print('led sleep')
+
 
 def chans_sleep(chan1,chan2,chan3,chan4,chan5,chan6,chan7,chan8):
-    while True:
-       	port.blackout()
+    print('chans sleep')
+    # while True:
+    port.blackout()
     port.render()
     sleep(2)
+
+    print('chans sleep')
 
     i = chan1
     while i < chan2:
@@ -167,8 +177,10 @@ def chans_sleep(chan1,chan2,chan3,chan4,chan5,chan6,chan7,chan8):
     		b = b + 1
     	i = i + 1	
     sleep(2)
+    print('chans sleep')
 
 def static_4cue(chan1,chan2,chan3,chan4):
+    print('static')
     port.dmx_frame[chan1] = 255
     port.dmx_frame[chan2] = 255
     port.dmx_frame[chan3] = 255
@@ -262,10 +274,12 @@ def run(filename=''):
 
 #scripts are chopped up into scriptChoices/script_i.txt based on scene changes, etc.
 #this part updates the script_compiled file as the run function cycles through words
+
 file_finished = open('run/script_compiled','w')
-for i in numpy.random.choice(22,1):  #total range is 0 to 23
-    print('script_' + str(i))
-    filename =  'scriptChoices/script_' + str(i) + '.txt' #how to choose which file to run markov chain on
+for i in numpy.random.choice(22,1):  #total range is 0 to 23, how to choose which file to run markov chain on
+    print('words taken from script #' + str(i))
+    print('\n')
+    filename =  'scriptChoices/script_' + str(i) + '.txt' 
     script_i = run(filename)   
     file_finished.write('\n')         
     file_finished = open('run/script_compiled','a') #add script chunk
@@ -276,7 +290,7 @@ for i in numpy.random.choice(22,1):  #total range is 0 to 23
     #extracting keywords (list)
     global keywords
     keywords = algo.pipe(input).result 
-    print('keyword have been generated')
+    print('keywords have been generated')
     
     #writing keywords to external text file
     file_finished = open('run/keywords','a')
@@ -294,6 +308,7 @@ for i in numpy.random.choice(22,1):  #total range is 0 to 23
     port.render()  
        #text to speech
 
+    print('speaking new script')
     engine = pyttsx3.init()
     rate = engine.getProperty('rate')
     engine.setProperty('rate', rate-55)
@@ -302,6 +317,10 @@ for i in numpy.random.choice(22,1):  #total range is 0 to 23
        
 print('script has been said')
 print('begin light cues')
+
+# These words were chosen by the directory based on frequency 
+# of use and sentimental meaning to match to keywords
+
  	        
 #light cues
 
@@ -330,7 +349,6 @@ if any(word == "Colonel" for word in keywords):
         
                  
                           
-       
 ################################################################                           
 #grand verbs
 if any(word == 'afford' for word in keywords):
