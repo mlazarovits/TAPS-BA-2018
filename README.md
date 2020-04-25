@@ -14,7 +14,7 @@ To run:
 ```
 python shaney_play.py
 ```
-This command will create a new script from the original one using a Markov chain to string together sentences from one chosen script (from `scriptChoices/`). 
+This command will create a new script from the original one using a Markov chain to string together sentences from one chosen script (from `scriptChoices/`). The number of sentences generated is 10 but can be changed by changing the `count` parameter in the `run` function.
 After the new script has been generated, the text-to-speech generator will say the new script out loud. Then, the light cues will begin. These light cues are trigged by keywords found in the new script.
 
 Note: you must have an active DMX connection to a lightboard to view the light cues.
